@@ -83,8 +83,9 @@ def package(args, pkgname, carch, force=False, buildinfo=False, strict=False,
     if not force and not pmb.build.is_necessary(args, carch, apkbuild):
         return
 
-    # Configure abuild.conf
+    # Configure abuild and ccache
     pmb.build.other.configure_abuild(args, suffix)
+    pmb.build.other.configure_ccache(args)
 
     # Generate output name, log build message
     output = (carch_buildenv + "/" + apkbuild["pkgname"] + "-" +

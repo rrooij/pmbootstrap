@@ -208,7 +208,8 @@ def shutdown(args):
 
 
 def stats(args):
-    pmb.build.ccache_stats(args, args.arch)
+    pmb.chroot.apk.install(args, ["ccache"])
+    pmb.chroot.user(args, ["ccache", "-s"], log=False)
 
 
 def log(args):

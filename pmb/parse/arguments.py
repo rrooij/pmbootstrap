@@ -206,8 +206,7 @@ def arguments():
                      " downloaded files cache")
 
     # Action: stats
-    stats = sub.add_parser("stats", help="show ccache stats")
-    stats.add_argument("--arch")
+    sub.add_parser("stats", help="show ccache stats")
 
     # Action: build_init / chroot
     build_init = sub.add_parser("build_init", help="initialize build"
