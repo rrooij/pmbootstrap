@@ -2,7 +2,7 @@
 
 pkgname="linux-samsung-i9505"
 pkgver=3.4.112
-pkgrel=2
+pkgrel=3
 pkgdesc="Samsung Galaxy S4 International kernel fork"
 arch="armhf"
 _carch="arm"
