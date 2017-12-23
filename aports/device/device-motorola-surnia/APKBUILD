@@ -1,0 +1,22 @@
+# Reference: <https://postmarketos.org/devicepkg>
+pkgname="device-motorola-surnia"
+pkgdesc="Motorola Moto E 2nd Gen LTE"
+pkgver=0.1
+pkgrel=0
+url="https://postmarketos.org"
+license="MIT"
+arch="noarch"
+options="!check"
+depends="linux-motorola-surnia mkbootimg"
+makedepends="devicepkg-dev"
+source="deviceinfo"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+sha512sums="7378345a6d84ce6b3b2ca60b2b413b58ad87ac64ca3602162ad501611012a194ee75aabe3f68e0a01a9697ffc2f3b10e388a9feba7726497bdb53b716d287d8d  deviceinfo"
