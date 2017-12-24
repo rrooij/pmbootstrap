@@ -2,7 +2,7 @@
 
 pkgname="linux-motorola-surnia"
 pkgver=3.10.49
-pkgrel=4
+pkgrel=5
 pkgdesc="Motorola Moto E 2nd Gen LTE kernel fork"
 arch="armhf"
 _carch="arm"
@@ -16,7 +16,7 @@ HOSTCC="${HOSTCC#${CROSS_COMPILE}}"
 
 # Source
 _repository="android_kernel_motorola_msm8916"
-_commit="ac87541051278c7ea7f494c0b689d08e4a5cdd4f"
+_commit="5cdfe21e3746f9068e8c11cae9be8d8d304119fe"
 _config="config-${_flavor}.${arch}"
 source="
 	$pkgname-$_commit.tar.gz::https://github.com/LineageOS/${_repository}/archive/${_commit}.tar.gz
@@ -53,11 +53,6 @@ build() {
 	make ARCH="$_carch" CC="${CC:-gcc}" \
 		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-postmarketOS"
 
-	# Modules
-	make ARCH="$_carch" CC="${CC:-gcc}" \
-		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-postmarketOS" \
-		modules
-
 	# Generate master DTB
 	dtbTool -s 2048 -p "scripts/dtc/" -o "arch/arm/boot/dt.img" "arch/arm/boot/"
 }
@@ -86,17 +81,9 @@ package() {
 	install -Dm644 "$builddir/arch/arm/boot/dt.img" \
 		"$pkgdir/boot/dt.img"
 
-	# Modules
-	cd "$builddir"
-	unset LDFLAGS
-	make ARCH="$_carch" CC="${CC:-gcc}" \
-		KBUILD_BUILD_VERSION="$((pkgrel + 1))-postmarketOS" \
-		INSTALL_MOD_PATH="$pkgdir" INSTALL_MOD_STRIP=1 \
-		modules_install
-
 }
 
 
-sha512sums="fbc2e1fa6ff33dd4c20bb063c655fe85ee20c194a9c19a5fadd3434b8ade4b95377848349ce9266d74ca34882446e1e257c0e1a3e35bd23ff05813918dc74750  linux-motorola-surnia-ac87541051278c7ea7f494c0b689d08e4a5cdd4f.tar.gz
-6386bfd986da57934582c6255da2a1cd19953f3790cf0faede19143571a595c38dbaf81a26d57d1b298a07eebba92839c7aa1f4fbf75c41f90bffc35b464a96b  config-motorola-surnia.armhf
+sha512sums="a3c5ea3779454691a9809a4c547d27deb0d01c2f8cbc1ea2659134141e5f79d877e1af529b7baecbb45b813b614755a1d965d724168730fbc1083c6853334fa1  linux-motorola-surnia-5cdfe21e3746f9068e8c11cae9be8d8d304119fe.tar.gz
+bc82dd6ed30c4d25292beaa779cb78be02cf8c3fbf80bca0ded3869a725b1b3f5f36b0dba38d1c5855eade294aeaefa0e3844153a3a6858c3f402c338cc71c79  config-motorola-surnia.armhf
 d80980e9474c82ba0ef1a6903b434d8bd1b092c40367ba543e72d2c119301c8b2d05265740e4104ca1ac5d15f6c4aa49e8776cb44264a9a28dc551e0d1850dcc  compiler-gcc6.h"
