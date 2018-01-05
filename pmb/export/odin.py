@@ -1,5 +1,5 @@
 """
-Copyright 2017 Oliver Smith
+Copyright 2018 Oliver Smith
 
 This file is part of pmbootstrap.
 
@@ -34,7 +34,7 @@ def odin(args, flavor, folder):
     suffix = "rootfs_" + args.device
 
     # Validate method
-    method = args.deviceinfo["flash_methods"]
+    method = args.deviceinfo["flash_method"]
     if not method.startswith("heimdall-"):
         raise RuntimeError("An odin flashable tar is not supported for the flash"
                            " method '" + method + "' specified in the current configuration."

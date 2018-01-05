@@ -1,5 +1,5 @@
 """
-Copyright 2017 Oliver Smith
+Copyright 2018 Oliver Smith
 
 This file is part of pmbootstrap.
 
@@ -59,5 +59,11 @@ def deviceinfo(args, device=None):
     for key in pmb.config.deviceinfo_attributes:
         if key not in ret:
             ret[key] = ""
+
+    # Sanity check: "flash_methods" is legacy
+    if "flash_methods" in ret:
+        raise RuntimeError("deviceinfo_flash_methods has been renamed to"
+                           " deviceinfo_flash_method. Please adjust your"
+                           " deviceinfo file: " + path)
 
     return ret

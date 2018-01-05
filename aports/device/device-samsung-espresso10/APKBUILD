@@ -1,0 +1,22 @@
+# Reference: <https://postmarketos.org/devicepkg>
+pkgname="device-samsung-espresso10"
+pkgdesc="Samsung Galaxy Tab 2 (10.1 inch)"
+pkgver=0.1
+pkgrel=1
+url="https://postmarketos.org"
+license="MIT"
+arch="noarch"
+options="!check"
+depends="linux-samsung-espresso10 firmware-samsung-espresso10 mkbootimg"
+makedepends="devicepkg-dev"
+source="deviceinfo"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+sha512sums="52b9cd540941d0d4059c90483e0e5d7f6b742ab012201add20a6602836e1831bd5fef8c930f3084f65da4a9c22ebaa5109dfa4d2eacd86c259b967eb4fedb0cb  deviceinfo"

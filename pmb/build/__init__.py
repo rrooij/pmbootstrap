@@ -1,5 +1,5 @@
 """
-Copyright 2017 Oliver Smith
+Copyright 2018 Oliver Smith
 
 This file is part of pmbootstrap.
 
@@ -21,6 +21,6 @@ from pmb.build.init import init
 from pmb.build.checksum import checksum
 from pmb.build.menuconfig import menuconfig
 from pmb.build.other import copy_to_buildpath, is_necessary, \
-    find_aport, ccache_stats, index_repo
+    find_aport, index_repo
 from pmb.build._package import package
 from pmb.build.qemu_workaround_aarch64 import qemu_workaround_aarch64

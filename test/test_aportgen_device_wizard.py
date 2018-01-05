@@ -1,5 +1,5 @@
 """
-Copyright 2017 Oliver Smith
+Copyright 2018 Oliver Smith
 
 This file is part of pmbootstrap.
 
@@ -112,20 +112,20 @@ def test_aportgen_device_wizard(args, monkeypatch):
     # First run
     deviceinfo, apkbuild, apkbuild_linux = generate(args, monkeypatch, answers)
     assert apkbuild["pkgname"] == "device-testsuite-testdevice"
-    assert apkbuild["pkgdesc"] == "Testsuite Testsuite Testdevice"
+    assert apkbuild["pkgdesc"] == "Testsuite Testdevice"
     assert apkbuild["depends"] == ["linux-testsuite-testdevice"]
 
     assert apkbuild_linux["pkgname"] == "linux-testsuite-testdevice"
-    assert apkbuild_linux["pkgdesc"] == "Testsuite Testsuite Testdevice kernel fork"
+    assert apkbuild_linux["pkgdesc"] == "Testsuite Testdevice kernel fork"
     assert apkbuild_linux["arch"] == ["armhf"]
     assert apkbuild_linux["_flavor"] == "testsuite-testdevice"
 
     assert deviceinfo["name"] == "Testsuite Testdevice"
-    assert deviceinfo["manufacturer"] == "Testsuite"
+    assert deviceinfo["manufacturer"] == answers["Manufacturer"]
     assert deviceinfo["arch"] == "armhf"
     assert deviceinfo["keyboard"] == "false"
     assert deviceinfo["external_disk"] == "true"
-    assert deviceinfo["flash_methods"] == "heimdall-isorec"
+    assert deviceinfo["flash_method"] == "heimdall-isorec"
     assert deviceinfo["generate_bootimg"] == ""
     assert deviceinfo["generate_legacy_uboot_initfs"] == ""
 
@@ -147,7 +147,7 @@ def test_aportgen_device_wizard(args, monkeypatch):
     answers["Path"] = ""
     deviceinfo, apkbuild, apkbuild_linux = generate(args, monkeypatch, answers)
     assert apkbuild["depends"] == ["linux-testsuite-testdevice", "mkbootimg"]
-    assert deviceinfo["flash_methods"] == answers["Flash method"]
+    assert deviceinfo["flash_method"] == answers["Flash method"]
     assert deviceinfo["generate_bootimg"] == "true"
 
     # 0xffff (legacy uboot initfs)

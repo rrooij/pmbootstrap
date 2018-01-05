@@ -1,5 +1,5 @@
 """
-Copyright 2017 Oliver Smith
+Copyright 2018 Oliver Smith
 
 This file is part of pmbootstrap.
 
@@ -82,7 +82,7 @@ def arguments_initfs(subparser):
     hook_del = sub.add_parser("hook_del", help="uninstall a hook package")
     for action in [hook_add, hook_del]:
         action.add_argument("hook", help="name of the hook aport, without the"
-                            " '" + pmb.config.initfs_hook_prefix + "' prefix, for example: 'usb-shell'")
+                            " '" + pmb.config.initfs_hook_prefix + "' prefix, for example: 'debug-shell'")
 
     # ls, build, extract
     ls = sub.add_parser("ls", help="list initramfs contents")
@@ -207,7 +207,7 @@ def arguments():
 
     # Action: stats
     stats = sub.add_parser("stats", help="show ccache stats")
-    stats.add_argument("--arch")
+    stats.add_argument("--arch", default=arch_native, choices=arch_choices)
 
     # Action: build_init / chroot
     build_init = sub.add_parser("build_init", help="initialize build"

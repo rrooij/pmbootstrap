@@ -1,5 +1,5 @@
 """
-Copyright 2017 Oliver Smith
+Copyright 2018 Oliver Smith
 
 This file is part of pmbootstrap.
 
@@ -24,7 +24,7 @@ def run(args, action, flavor=None):
     pmb.flasher.init(args)
 
     # Verify action
-    method = args.flash_method or args.deviceinfo["flash_methods"]
+    method = args.flash_method or args.deviceinfo["flash_method"]
     cfg = pmb.config.flashers[method]
     if action not in cfg["actions"]:
         raise RuntimeError("action " + action + " is not"
