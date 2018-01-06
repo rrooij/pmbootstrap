@@ -1,13 +1,13 @@
 # Reference: <https://postmarketos.org/devicepkg>
-pkgname="device-samsung-s6500d"
-pkgdesc="Samsung Galaxy Mini 2"
+pkgname="device-motorola-shamu"
+pkgdesc="Motorola Google Nexus 6"
 pkgver=0.1
-pkgrel=1
+pkgrel=0
 url="https://postmarketos.org"
 license="MIT"
 arch="noarch"
 options="!check"
-depends="linux-samsung-s6500d mkbootimg mesa-dri-swrast"
+depends="linux-motorola-shamu mkbootimg mesa-dri-swrast"
 makedepends="devicepkg-dev"
 source="deviceinfo"
 
@@ -19,4 +19,4 @@ package() {
 	devicepkg_package $startdir $pkgname
 }
 
-sha512sums="048548b95047d9d0e3911752e59dc2d64d5af4b3d6038a1208c63a3cb21c3c5338c9c452bdb8467201e486f7d11407b426c9a49a4c410386cc0b1580c8707789  deviceinfo"
+sha512sums="40bff906976c61fa5a80bf564fa356249cd70b373508d81be517f8cdd0324c4ebf530436b110494e4a9f232e2a03fd3d1470a1760807f16b2f72cf187336d837  deviceinfo"
