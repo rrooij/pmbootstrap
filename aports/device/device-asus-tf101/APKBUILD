@@ -1,6 +1,6 @@
 # Reference: <https://postmarketos.org/devicepkg>
 pkgname="device-asus-tf101"
-pkgdesc="Asus Asus Eee Pad Transformer"
+pkgdesc="Asus Eee Pad Transformer"
 pkgver=0.1
 pkgrel=0
 url="https://postmarketos.org"
