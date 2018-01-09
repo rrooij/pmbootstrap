@@ -1,7 +1,7 @@
 # Reference: <https://postmarketos.org/devicepkg>
 pkgname="device-samsung-i9195"
 pkgdesc="Samsung Galaxy S4 Mini"
-pkgver=0.1
+pkgver=0.2
 pkgrel=0
 url="https://postmarketos.org"
 license="MIT"
@@ -19,4 +19,4 @@ package() {
 	devicepkg_package $startdir $pkgname
 }
 
-sha512sums="fee4fa2b03f253ccb568fa53a4264df24f0e932341f381337f73b6e255959ce754574792d173898643ce0d3c1e734b032e56139cf259aad02201fdb7916bfefc  deviceinfo"
+sha512sums="65378754ef989354ff7a0a9bba9fbbf59e73785e4d2cdeb64d9035670884cab30870a337a029f2988f0fac2c9819d7ea8a67250c9d61fa47dfde753798728616  deviceinfo"
