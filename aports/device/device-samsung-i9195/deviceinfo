@@ -35,4 +35,3 @@ deviceinfo_flash_heimdall_partition_system=""
 
 # Weston pixman setting
 deviceinfo_weston_pixman_type="2"
-
