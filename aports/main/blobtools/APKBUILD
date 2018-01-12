@@ -6,7 +6,7 @@ url="https://github.com/AndroidRoot/BlobTools"
 arch="all"
 license="Apache-2.0"
 depends=""
-makedepends="cmake"
+makedepends=""
 subpackages=""
 source="$pkgname-$pkgver.tar.gz::https://github.com/rrooij/BlobTools/archive/${pkgver}.tar.gz"
 options="!check"
@@ -14,12 +14,11 @@ options="!check"
 builddir="$srcdir"/BlobTools-$pkgver
 build() {
 	cd "$builddir"
-	cmake -DCMAKE_BUILD_TYPE=Release .
 	make
 }
 
 package() {
-	for i in "$builddir"/bin/*; do
+	for i in "$builddir"/blobpack "$builddir"/blobunpack; do
 		install -Dm755 "$i" "$pkgdir"/usr/bin/"$(basename "$i")"
 	done
 }
