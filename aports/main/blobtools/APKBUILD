@@ -1,7 +1,7 @@
 pkgname=blobtools
 pkgver=1.0
 pkgrel=0
-pkgdesc="Tools for unpacking & repacking blobs used for updating "hidden" partitions on ASUS Transformer"
+pkgdesc="Tools for unpacking & repacking blobs used for updating 'hidden' partitions on ASUS Transformer"
 url="https://github.com/AndroidRoot/BlobTools"
 arch="all"
 license="Apache-2.0"
