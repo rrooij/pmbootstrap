@@ -1,0 +1,27 @@
+pkgname=blobtools
+pkgver=6186e33baa10ce6f1c738d7b91eb5153743105af
+pkgrel=0
+pkgdesc="Tools for unpacking & repacking blobs used for updating "hidden" partitions on ASUS Transformer"
+url="https://github.com/AndroidRoot/BlobTools"
+arch="all"
+license="Apache-2.0"
+depends=""
+makedepends="cmake"
+subpackages=""
+source="$pkgname-$pkgver.tar.gz::https://github.com/AndroidRoot/BlobTools/archive/${pkgver}.tar.gz"
+options="!check"
+
+builddir="$srcdir"/BlobTools-$pkgver
+build() {
+	cd "$builddir"
+	cmake -DCMAKE_BUILD_TYPE=Release -DDISABLE_FRONTEND=ON .
+	make
+}
+
+package() {
+	for i in "$builddir"/bin/*; do
+		install -Dm755 "$i" "$pkgdir"/usr/bin/"$(basename "$i")"
+	done
+}
+
+sha512sums="69e1113c1d99f1aa930cc6674d6a0473baf9648c4c3f4da37aa44cb42648a40fe15d0a4a72815baa1118bdca36b0084b4efe82ff75549d233498a5637e98508d  blobtools-6186e33baa10ce6f1c738d7b91eb5153743105af.tar.gz"
