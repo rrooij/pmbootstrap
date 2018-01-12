@@ -14,7 +14,7 @@ options="!check"
 builddir="$srcdir"/BlobTools-$pkgver
 build() {
 	cd "$builddir"
-	cmake -DCMAKE_BUILD_TYPE=Release -DDISABLE_FRONTEND=ON .
+	cmake -DCMAKE_BUILD_TYPE=Release .
 	make
 }
 
