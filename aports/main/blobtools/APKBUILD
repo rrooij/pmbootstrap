@@ -1,5 +1,5 @@
 pkgname=blobtools
-pkgver=git20121024
+pkgver=0.0_git20121024
 pkgrel=0
 pkgdesc="Tools for unpacking & repacking blobs used for updating 'hidden' partitions on ASUS Transformer"
 url="https://github.com/AndroidRoot/BlobTools"
